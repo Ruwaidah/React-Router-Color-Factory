@@ -23,6 +23,7 @@ const AddColorForm = (props) => {
     <div className="AddColorForm">
       <form onSubmit={handleSubmit}>
         <input
+        className="name-input"
           type="text"
           name="name"
           max="25"

@@ -8,7 +8,7 @@ import ColorList from "./components/ColorList/ColorList";
 function App() {
   const [colors, setColors] = useState([]);
   const [clickedColor, setClickedColor] = useState(null);
-  console.log(colors);
+  console.log(clickedColor)
   return (
     <div className="App">
       <Routes>

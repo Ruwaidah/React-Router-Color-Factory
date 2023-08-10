@@ -4,14 +4,21 @@ import Color from "../Color/Color";
 import { Link } from "react-router-dom";
 
 const ColorList = (props) => {
-  console.log(props.setClickedColor);
+  const colorPicked = (color) => {
+    console.log(color);
+    props.setClickedColor(color);
+  };
   return (
     <div className="ColorList">
       <Nav />
       <p>Please Select a color.</p>
-      {props.colors.map((color) => (
-        <Link to={`/colors/${color.name}`} onClick={() => props.setClickedColor(color)}>{color.name}</Link>
-      ))}
+      <div>
+        {props.colors.map((color) => (
+          <Link to={`/colors/${color.name}`} onClick={() => colorPicked(color)}>
+            {color.name}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

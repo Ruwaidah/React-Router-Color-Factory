@@ -1,0 +1,43 @@
+.AddColorForm {
+  height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Indigo,
+    Violet
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddColorForm form {
+    background-color: white;
+    width: 30%;
+    padding: 30px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AddColorForm form .name-input {
+    padding-left: 10px;
+}
+
+.AddColorForm form input{
+    width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    height: 40px;
+    padding: 2px;
+    outline: none;
+    border: none;
+    background-color: lightblue;
+    font-size: 18px;
+}
