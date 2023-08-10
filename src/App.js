@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Color from "./components/Color/Color";
+import AddColorForm from "./components/AddColorForm/AddColorForm";
+import { useState } from "react";
+import ColorList from "./components/ColorList/ColorList";
 
 function App() {
+  const [colors, setColors] = useState([]);
+  const [clickedColor, setClickedColor] = useState(null);
+  console.log(colors);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route
+          path="/colors"
+          element={
+            <ColorList colors={colors} setClickedColor={setClickedColor} />
+          }
+        />
+        <Route path="*" element={<Navigate to="/colors" />} />
+        <Route
+          exact
+          path="/colors/new"
+          element={<AddColorForm setColors={setColors} colors={colors} />}
+        />
+        <Route
+          path="/colors/:color"
+          element={<Color clickedColor={clickedColor} />}
+        />
+        <Route path="*" element={<ColorList />} />
+      </Routes>
     </div>
   );
 }
